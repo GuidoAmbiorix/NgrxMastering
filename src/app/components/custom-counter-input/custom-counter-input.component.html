@@ -1,0 +1,16 @@
+<form [formGroup]="addToCounterForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Add counter</mat-label>
+    <input type="number" matInput formControlName="addCounter">
+  </mat-form-field>
+
+  <button mat-raised-button color="warn" (click)="onAdd()">Add to counter</button>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Change Title</mat-label>
+    <input type="string" matInput formControlName="title">
+  </mat-form-field>
+  <button mat-raised-button color="warn" (click)="changeTitle()">Change Title</button>
+
+  {{title}}
+</form>
