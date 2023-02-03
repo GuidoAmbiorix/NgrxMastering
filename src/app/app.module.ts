@@ -14,6 +14,11 @@ import { counterReducer } from './components/state/counter.reducer';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MaterialModule } from './shared/material/material.module';
 import { CustomCounterInputComponent } from './components/custom-counter-input/custom-counter-input.component';
+import { HomeComponent } from './components/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
+import { PostsListComponent } from './components/posts/posts-list/posts-list.component';
+import { appReducer } from './store/app.state';
+import { AddPostComponent } from './components/posts/add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +27,16 @@ import { CustomCounterInputComponent } from './components/custom-counter-input/c
     CounterButtonsComponent,
     CounterOutputComponent,
     CustomCounterInputComponent,
+    HomeComponent,
+    HeaderComponent,
+    PostsListComponent,
+    AddPostComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({counter:counterReducer},),
+    StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     MaterialModule,
     ReactiveFormsModule
