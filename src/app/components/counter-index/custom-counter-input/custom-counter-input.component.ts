@@ -1,4 +1,4 @@
-import { changeTitle, customIncrement } from './../state/counter.actions';
+import { changeTitle, customIncrement } from '../state/counter.actions';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { State, Store } from '@ngrx/store';

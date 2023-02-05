@@ -1,5 +1,5 @@
-import { AppState } from './../../store/app.state';
-import { CounterState } from './../state/counter.actions';
+import { AppState } from '../../../store/app.state';
+import { CounterState } from '../state/counter.actions';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map, tap } from 'rxjs';
