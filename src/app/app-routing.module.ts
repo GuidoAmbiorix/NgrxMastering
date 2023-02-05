@@ -4,7 +4,7 @@ import { PostsListComponent } from './components/posts/posts-list/posts-list.com
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CounterComponent } from './components/counter-index/counter/counter.component';
+import { CounterComponent } from './components/counter/counter-index/counter.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
