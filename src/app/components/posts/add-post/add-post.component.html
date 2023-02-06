@@ -1,0 +1,17 @@
+
+  <form [formGroup]="addPostForm" (ngSubmit)="onAddPost()">
+    <h2>Add Post</h2>
+     <mat-form-field appearance="fill">
+       <mat-label>Title</mat-label>
+       <input matInput formControlName="title">
+     </mat-form-field>
+     <h4 style="color:red">{{showErrors('title')}}</h4>
+
+     <mat-form-field appearance="fill">
+       <mat-label>Description</mat-label>
+       <textarea matInput formControlName="description"></textarea>
+     </mat-form-field>
+     <h4 style="color: red;">{{showErrors('description')}}</h4>
+
+     <button mat-raised-button [disabled]="!addPostForm.valid">Add Post</button>
+   </form>

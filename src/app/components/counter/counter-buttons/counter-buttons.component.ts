@@ -1,5 +1,5 @@
-import { AppState } from './../../store/app.state';
-import { increment, decrement, reset } from './../state/counter.actions';
+import { AppState } from '../../../store/app.state';
+import { increment, decrement, reset } from '../state/counter.actions';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
