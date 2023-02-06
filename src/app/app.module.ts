@@ -1,3 +1,4 @@
+import { appReducer } from './store/app.state';
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,18 +12,20 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     MaterialModule,
