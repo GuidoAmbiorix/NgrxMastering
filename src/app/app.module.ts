@@ -9,8 +9,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MaterialModule } from './shared/material/material.module';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
-import { appReducer } from './store/app.state';
-
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,10 @@ import { appReducer } from './store/app.state';
     AppRoutingModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
