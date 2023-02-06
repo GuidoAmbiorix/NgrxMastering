@@ -1,3 +1,4 @@
+import { AuthEffects } from './state/auth.effects';
 import { AUTH_STATE_NAME } from './state/auth.selector';
 import { StoreModule } from '@ngrx/store';
 import { MaterialModule } from './../../shared/material/material.module';
@@ -23,8 +24,8 @@ const routes:Routes = [
   ],
   imports: [
     CommonModule,
+    EffectsModule.forFeature([AuthEffects]),
     StoreModule.forFeature(AUTH_STATE_NAME,AuthReducer),
-
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     MaterialModule

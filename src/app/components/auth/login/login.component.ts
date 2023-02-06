@@ -1,5 +1,8 @@
+import { loginStart } from './../state/auth.actions';
+import { AppState } from './../../../store/app.state';
 import { FormGroup, FormControl, FormControlName, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   hide = true;
 
-  constructor(){}
+  constructor(private store:Store<AppState>){}
 
   ngOnInit(): void {
 
@@ -21,8 +24,9 @@ export class LoginComponent implements OnInit {
   });
 
   onLoginSubmit(){
-  console.log(this.loginForm.value);
-
+   const email:any = this.loginForm!.value!['email'];
+   const password:any = this.loginForm!.value!['password'];
+    this.store.dispatch(loginStart({email,password}))
   }
 
   showErrors(formName:string):any{
