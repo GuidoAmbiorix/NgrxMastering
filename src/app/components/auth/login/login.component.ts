@@ -12,9 +12,7 @@ import { Store } from '@ngrx/store';
 })
 export class LoginComponent implements OnInit {
   hide = true;
-
   constructor(private store:Store<AppState>){}
-
   ngOnInit(): void {
 
   }

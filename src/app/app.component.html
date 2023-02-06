@@ -1,3 +1,7 @@
 <app-header></app-header>
-<app-loading-spinner *ngIf="showLoading | async"></app-loading-spinner>
+<!-- <app-loading-spinner *ngIf="showLoading | async"></app-loading-spinner> -->
+<div *ngIf="errorMessage | async as error" class="error">
+{{error}}
+</div>
+
 <router-outlet></router-outlet>
