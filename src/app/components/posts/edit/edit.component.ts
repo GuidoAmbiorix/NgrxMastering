@@ -1,3 +1,4 @@
+import { updatePost } from './../state/post.actions';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -33,9 +34,13 @@ export class EditComponent implements OnInit{
     return;
   }
     const post:Post = {
+      id:this.id,
       title:this.EditPostForm.value.title!,
       description:this.EditPostForm.value.description!
     }
+
+    this.store.dispatch(updatePost({posts:post,id:this.id}));
+
   }
 
   showErrors(formName:string):any{

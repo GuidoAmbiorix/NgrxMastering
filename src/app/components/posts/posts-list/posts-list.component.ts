@@ -1,8 +1,9 @@
-import { map } from 'rxjs';
-import { EditComponent } from './../edit/edit.component';
-import { AddPostComponent } from './../add-post/add-post.component';
-import { getPosts } from './../state/post.selector';
-import { AppState } from './../../../store/app.state';
+import { deletePost, loadPost } from '../state/post.actions';
+ import { map } from 'rxjs';
+import { EditComponent } from '../edit/edit.component';
+import { AddPostComponent } from '../add-post/add-post.component';
+import { getPosts } from '../state/post.selector';
+import { AppState } from '../../../store/app.state';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/interfaces/post';
@@ -16,12 +17,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class PostsListComponent implements OnInit {
 
-  constructor(private store:Store<AppState>,private dialog: MatDialog,  private router: Router,private route:ActivatedRoute){
-
-  }
+  constructor(
+    private store:Store<AppState>,
+    private dialog: MatDialog,
+    private router: Router,
+    private route:ActivatedRoute){}
 
   ngOnInit(): void {
-
+    this.store.dispatch(loadPost())
   }
 
   posts$ = this.store.select(getPosts);
@@ -34,7 +37,6 @@ export class PostsListComponent implements OnInit {
       width : '15%',
       height : '50%',
     });
-
 
     dialgoRef.afterClosed().subscribe(result =>{
       this.router.navigate(['posts']);
@@ -53,5 +55,11 @@ export class PostsListComponent implements OnInit {
   })
 
   }
+
+  deletePost(id:string){
+
+    this.store.dispatch(deletePost({id:id}))
+
+    }
 
 }

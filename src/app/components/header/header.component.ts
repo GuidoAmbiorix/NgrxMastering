@@ -1,3 +1,5 @@
+import { isAuthenticated } from './../auth/state/auth.selector';
+import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/app.state';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -9,7 +11,12 @@ import { Store } from '@ngrx/store';
 })
 export class HeaderComponent implements OnInit {
 
+  isAuthenticated!:Observable<boolean>;
+
   constructor(private store:Store<AppState>){}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  this.isAuthenticated = this.store.select(isAuthenticated)
+  }
+
 }

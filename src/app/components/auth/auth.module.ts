@@ -9,23 +9,25 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes } from '@angular/router';
 import { AuthReducer } from './state/auth.reducer';
 import { EffectsModule } from '@ngrx/effects';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 const routes:Routes = [
 {path:'',children:[
   {path:'',redirectTo:'login',pathMatch:'full'},
-  {path:'login',component:LoginComponent}
+  {path:'login',component:LoginComponent},
+  {path:'signup',component:SignUpComponent}
 ]}
 ];
 
 @NgModule({
   declarations: [
     LoginComponent,
+    SignUpComponent,
   ],
   imports: [
     CommonModule,
     EffectsModule.forFeature([AuthEffects]),
-    StoreModule.forFeature(AUTH_STATE_NAME,AuthReducer),
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     MaterialModule
