@@ -27,7 +27,6 @@ export class PostsService {
     return this.http.post<{name:string}>("https://angular-rxjspost-default-rtdb.firebaseio.com/posts.json",post);
   }
 
-
   editPost(post:Post){
     const postData = {[post.id!]: {title:post.title,description:post.description}};
 
