@@ -1,4 +1,4 @@
-import { loginSuccess, signupStart, signupSuccess } from './auth.actions';
+import { loginSuccess, signupSuccess, logoutStart } from './auth.actions';
 
 import { createReducer, on } from '@ngrx/store';
 import { initialState } from './auth.state';
@@ -16,7 +16,14 @@ on(signupSuccess,(state,action) =>{
     ...state,
     user:action.user
   }
+}),
+on(logoutStart,(state) =>{
+  return{
+    ...state,
+    user:state.user
+  }
 })
+
 );
 
 

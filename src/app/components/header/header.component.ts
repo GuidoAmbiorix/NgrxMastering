@@ -1,3 +1,4 @@
+import { logoutStart } from './../auth/state/auth.actions';
 import { isAuthenticated } from './../auth/state/auth.selector';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/app.state';
@@ -17,6 +18,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   this.isAuthenticated = this.store.select(isAuthenticated)
+  }
+
+  onLogout(){
+    this.store.dispatch(logoutStart())
   }
 
 }

@@ -15,5 +15,7 @@ export const signupStart = createAction(
   );
 export const signupSuccess = createAction('[auth page] signup start',props<{user:User}>());
 
+export const logoutStart = createAction('[auth page] logout')
+
 
 

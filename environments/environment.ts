@@ -1,6 +1,6 @@
 export const environment = {
   production:false,
-  FIREBASE_API_KEY:'AIzaSyA9ByQBbEjlMxq6TmWJojglBZLEN2VE6W4'
+  FIREBASE_API_KEY:'AIzaSyBiEn4lqMLZCQgsUdADo5QM0XNW56sAwTM'
 }
 
 // Initialize Firebase
