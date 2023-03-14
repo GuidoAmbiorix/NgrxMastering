@@ -30,8 +30,9 @@ export class AuthEffects{
           }),
           catchError((errResp) =>{
             this.store.dispatch(setLoadingSpinner({status:false}));
-            const errorMessage:string = this.authService.getErrorMessage(errResp.error.error.message);
-            return of(setErrorMessage({error:errorMessage}));
+            // const errorMessage:string = this.authService.getErrorMessage(errResp.error.error.message);
+            // return of(setErrorMessage({error:errorMessage}));
+            return of();
           })
         )
       })
@@ -50,8 +51,9 @@ export class AuthEffects{
           }),
           catchError((errResp) =>{
             this.store.dispatch(setLoadingSpinner({status:false}));
-            const errorMessage:string = this.authService.getErrorMessage(errResp.error.error.message);
-            return of(setErrorMessage({error:errorMessage}));
+            // const errorMessage:string = this.authService.getErrorMessage(errResp.error.error.message);
+            // return of(setErrorMessage({error:errorMessage}));
+            return of();
           })
         )
       })
@@ -60,7 +62,7 @@ export class AuthEffects{
 
   loginRedirect$ = createEffect(() =>{
     return this.action$.pipe(ofType(loginSuccess,signupSuccess),tap(action =>{
-      this.store.dispatch(setErrorMessage({error:''}));
+      // this.store.dispatch(setErrorMessage({error:''}));
       this.router.navigate(['/']);
     }))
   },{dispatch:false});

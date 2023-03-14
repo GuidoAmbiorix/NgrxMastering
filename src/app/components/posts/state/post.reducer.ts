@@ -21,9 +21,9 @@ const _postsReducer = createReducer(initialState,
   }),
   on(updatePostSuccess,(state,action) =>{
 
-    const updatedPosts = state.posts.filter(post => post.id == action.id);
-
-    console.log(updatedPosts)
+    const updatedPosts = state.posts.map(post =>
+      action.posts.id === post.id ? action.posts: post
+      );
 
     return {
       ...state,

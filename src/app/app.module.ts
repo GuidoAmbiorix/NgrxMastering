@@ -1,3 +1,4 @@
+import { AuthToktenInterceptor } from './components/auth/services/authToken.interceptor';
 import { appReducer } from './store/app.state';
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +12,7 @@ import { MaterialModule } from './shared/material/material.module';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { EffectsModule } from '@ngrx/effects';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
@@ -33,7 +34,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     HttpClientModule,
     StoreRouterConnectingModule.forRoot()
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass:AuthToktenInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
