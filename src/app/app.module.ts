@@ -13,6 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
